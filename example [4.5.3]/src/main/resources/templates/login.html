@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <form th:action="@{/login}" method="post" th:object="${user}" >
+        <input th:field="*{username}" type="text" placeholder="username">
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="err"></span><br>
+        <input th:field="*{password}" type="password" placeholder="password">
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="err"></span><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div th:if="${response != null}">
+        <span th:text="${response}" class="message"></span>
+    </div>
+</body>
+</html>

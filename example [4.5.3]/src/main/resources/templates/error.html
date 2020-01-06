@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Errors</title>
+</head>
+<body>
+    <span th:if="${response != null}" th:text="${response}"/>
+    <ul>
+        <li th:if="${timestamp != null}"    th:text="'Date: ' + ${timestamp}" ></li>
+        <li th:if="${path != null}"         th:text="'Path: ' + ${path}" ></li>
+        <li th:if="${error != null}"        th:text="'Errors: ' + ${error}" ></li>
+        <li th:if="${status != null}"       th:text="'Status: ' + ${status}" ></li>
+        <li th:if="${message != null}"      th:text="'Message: ' + ${message}" ></li>
+        <li th:if="${exception != null}"    th:text="'Exception: ' + ${exception}" ></li>
+    </ul>
+    <pre th:if="${trace != null}" th:text="'Trace: ' + ${trace}" ></pre>
+</body>
+</html>
