@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <form method="post" th:action="@{/login}" th:object="${user}">
+        <label>
+            <input type="text" th:placeholder="#{messages.userName}" th:field="*{userName}">
+        </label><br>
+        <label>
+            <input type="password" th:placeholder="#{messages.password}" th:field="*{password}">
+        </label><br>
+        <button type="submit"><th:block th:text="#{messages.signIn}"/></button>
+    </form>
+    <span th:if="${loginFailed != null}" th:text="#{messages.loginFailed}"></span>
+    <span th:if="${hello_userName != null}" th:text="#{messages.hello} + ' ' + ${hello_userName}"></span>
+</body>
+</html>
+
+
