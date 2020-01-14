@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.nguyen</groupId>
-    <artifactId>i18n</artifactId>
+    <artifactId>i180</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>i18n</name>
+    <name>i180</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
