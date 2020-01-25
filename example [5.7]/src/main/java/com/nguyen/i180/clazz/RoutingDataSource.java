@@ -30,9 +30,10 @@ public class RoutingDataSource extends AbstractRoutingDataSource {
                         requireNonNull(RequestContextHolder.getRequestAttributes())).
                         getRequest();
 
-        LocaleResolver localeResolver = RequestContextUtils.getLocaleResolver(request);
-        assert localeResolver != null;
-        Locale locale = localeResolver.resolveLocale(request);
+        LocaleResolver localeResolver =
+                RequestContextUtils.getLocaleResolver(request);
+
+        Locale locale = localeResolver != null ? localeResolver.resolveLocale(request) : null;
 
         if (targetDataSources.containsKey(locale)) {
             return locale;

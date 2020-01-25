@@ -28,14 +28,14 @@ public class URLLocaleResolver implements LocaleResolver {
 
     @Override
     public Locale resolveLocale(HttpServletRequest request) {
-        parseLocaleCookieIfNecessary(request);
+        parseLocaleIfNecessary(request);
         Locale locale = (Locale) request.getAttribute(DEFAULT_ATTRIBUTE_NAME);
         setLocale(request, locale);
 
         return locale;
     }
 
-    private void parseLocaleCookieIfNecessary(HttpServletRequest request) {
+    private void parseLocaleIfNecessary(HttpServletRequest request) {
         Locale locale = getLocaleFromRequest(request);
         if (locale == null) {
             locale = defaultLocale;
