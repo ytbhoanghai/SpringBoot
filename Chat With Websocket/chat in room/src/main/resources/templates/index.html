@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat With Room</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/img/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/img/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/img/favicon-16x16.png}">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="row navbar navbar-expand-lg navbar-light bg-light">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Name Room" id="nameRoom">
+                <button class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2" type="submit" id="createRoom">Create</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0 mr-sm-5" type="submit" id="joinRoom">Join</button>
+            </form>
+            <select class="form-control col-2 mr-sm-2">
+                <option value="-1">Choose room...</option>
+            </select>
+            <button class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2" type="submit" id="copyToClipboard" style="display: none">Copy ID</button>
+            <span class="text-primary mr-sm-2" th:text="${fullName}"></span>
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-2 col-sm-12">
+                <div class="comment-wrapper" style="display: none">
+                    <div class="panel-body">
+                        <textarea id="inputMessage" class="form-control" placeholder="write a comment..." rows="3"></textarea>
+                        <br>
+                        <button id="post" type="button" class="btn btn-info">Post</button>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <div id="messages"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/sockjs.min.js}"></script>
+    <script th:src="@{/js/stomp.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</body>
+</html>
